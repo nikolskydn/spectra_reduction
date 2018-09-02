@@ -34,7 +34,7 @@ From catalog `spectra-reduction` go to catalog with examples.
 
 The raw spectra of petrols are difficult to differ (see Figure 1).
 
-![PetrolsSpectra](./doc/pspectra "Figure 1. Petrols Spectra.")
+![PetrolsSpectra](./doc/pspectra.png "Figure 1. Petrols Spectra.")
 
 After compression by the algorithm HGSC we obtain a 3D image for petrols spectra (see Figure 2). The effect of clustering is well visible.
 
