@@ -34,20 +34,39 @@ def hgsc(data,thr=0.7):
     return X
 
 
-def hhc(data,K=10):
+def hhc(data,K=30):
     """ Hilbert and Hash compression.
 
+    Compresses the original data and return their imag
+    in three-dimensional space. 
+
+    Parameters
+    ----------
+    data : numpy.ndarray
+        Spectra for reduce. The spectra are arranded in rows. 
+        Rows index is the spectra number. Spectral values should be positive.
+    K: int
+       Edges for histogram.
+       
     """
+
     x = data + np.imag(hilbert(data))
-    mn,mx = np.min(x),np.max(x)
+    mn,mx = np.min(x,axis=1),np.max(x,axis=1)
     sp = (mx-mn)/K
-    hist,edges = np.histogram(x,bins=K,range=(mn-sp,mx+sp))
-    centers = (edges[1:]+edges[-1:])/2.0
-    nm = np.sum(hist)
-    nu1 = np.sum(centers*hist/nm)  
-    nu2 = np.sum(centers**2*hist/nm)  
-    nu3 = np.sum(centers**3*hist/nm) 
-    return np.array([nu1,nu2,nu3])
+    hists_list = []
+    edges_list = []
+    for i in range(sp.shape[0]):
+        h,e = np.histogram(x[i],bins=K,range=(mn[i]-sp[i],mx[i]+sp[i]))
+        hists_list.append(h)
+        edges_list.append(e)
+    hist = np.vstack(hists_list)
+    edges = np.vstack(edges_list)
+    centers = (edges[:,1:]+edges[:,-1:])/2.0
+    nm = np.sum(hist,axis=1).reshape(-1,1)
+    nu1 = np.sum(centers*hist/nm,axis=1)  
+    nu2 = np.sum(centers**2*hist/nm,axis=1)  
+    nu3 = np.sum(centers**3*hist/nm,axis=1) 
+    return np.array(np.c_[nu1,nu2,nu3])
 
 def mhm():
     """ Median and Hirst and Modulation  compression.

@@ -38,22 +38,14 @@ def main():
         if thr<0 or thr>1: 
             thr = 0.7
         img3d = cs.hgsc(data=np.vstack(l))
-        output_file_name = ('_'.join(input_files_name) + '-3d')
+        output_file_name = ('_'.join(input_files_name) + '-hgsc3d')
         np.save(output_file_name,img3d)
 
     elif args.strategy == 'hhc':
-        dat = np.vstack(l)
-        if args.split:
-            for i in range(dat.shape[0]):
-                hist,edges = cs.hhc(dat[i])
-                output_file_name = ( '_'.join(input_files_name) + 
-                                     '_'+ str(i) + '-hist' )
-                np.savez(output_file_name,hist=hist,edges=edges)
-        else:
-            hist,edges = cs.hhc(np.vstack(l))
-            output_file_name = '_'.join(input_files_name) + '-hist'
-            np.savez(output_file_name,hist=hist,edges=edges)
-
+        img3d = cs.hhc(data=np.vstack(l))
+        print(img3d)
+        output_file_name = ('_'.join(input_files_name) + '-hhc3d')
+        np.save(output_file_name,img3d)
 
 
 if __name__ == '__main__':

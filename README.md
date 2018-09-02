@@ -39,3 +39,9 @@ The raw spectra of petrols are difficult to differ (see Figure 1).
 After compression by the algorithm HGSC we obtain a 3D image for petrols spectra (see Figure 2). The effect of clustering is well visible.
 
 ![HGSCImage](./doc/phgsc3d.png "Figure 2. HGSC Image.")
+
+The result of HHC compression is shown in Figure 3.
+
+![HHCImage](./doc/phhc3d.png "Figure 3. HHC Image.")
+
+

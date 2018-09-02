@@ -32,7 +32,7 @@ def main():
 
     for idx,npy in enumerate(args.from_npy_files):
         imgs = np.load(npy.name)
-        lab = npy.name.replace('-3d.npy','')
+        lab = npy.name.replace('3d.npy','')
         ax.plot(xs=imgs[:,0],ys=imgs[:,1],zs=imgs[:,2],linewidth=0, 
                 markersize=10,c=colors[idx%len(colors)],
                 marker=markers[idx%len(markers)],label=lab)
