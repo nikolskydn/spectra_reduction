@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import argparse
+plt.rcParams['text.usetex'] = True
 
 def get_args():
     parser = argparse.ArgumentParser(description='Draw raw spectra')

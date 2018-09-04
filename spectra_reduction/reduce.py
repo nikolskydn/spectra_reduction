@@ -14,7 +14,8 @@ def get_args():
     parser.add_argument('-t', '--threshold',help='Variation threshold',
                         type=float,default=0.7)
     parser.add_argument('-s', '--strategy',help='Сompression strategy',
-                        type=str,choices=['hgsc','hhc'],default='hgsc')
+                        type=str,choices=['hgsc','hhc','mhc'],
+                        default='hgsc')
     parser.add_argument('-p','--split', action='store_true', 
                         help='Split data into alone rows.')
     return  parser.parse_args()
@@ -43,9 +44,14 @@ def main():
 
     elif args.strategy == 'hhc':
         img3d = cs.hhc(data=np.vstack(l))
-        print(img3d)
         output_file_name = ('_'.join(input_files_name) + '-hhc3d')
         np.save(output_file_name,img3d)
+
+    elif args.strategy == 'mhc':
+        img3d = cs.mhc(data=np.vstack(l))
+        output_file_name = ('_'.join(input_files_name) + '-mhc3d')
+        np.save(output_file_name,img3d)
+
 
 
 if __name__ == '__main__':
