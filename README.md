@@ -82,4 +82,4 @@ The result of algorithm MHC (Media and Histogram hash Compression) is shown in F
 
 ## Bibliography
 
-[1] Vagin, V.A., Krasnov, A.E., Nikol'skii, D.N. Fast Methods for Reducing Dimensionality of Spectral Data for Their Visualization// Journal of Applied, 2019, 86(1), pp. 101–105
+[1] Vagin, V.A., Krasnov, A.E., Nikol'skii, D.N. Fast Methods for Reducing Dimensionality of Spectral Data for Their Visualization// Journal of Applied  Spectroscopy, 2019, 86(1), pp. 101–105
