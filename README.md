@@ -79,3 +79,7 @@ The result of algorithm HHC (Hilbert and Histogram hash Compression) is shown in
 The result of algorithm MHC (Media and Histogram hash Compression) is shown in Figure 4.
 
 ![MHCImage](./doc/pmhc3d.png "Figure 4. MHC Image.")
+
+## Bibliography
+
+[1] Vagin, V.A., Krasnov, A.E., Nikol'skii, D.N. Fast Methods for Reducing Dimensionality of Spectral Data for Their Visualization// Journal of Applied, 2019, 86(1), pp. 101–105
